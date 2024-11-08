@@ -31,11 +31,12 @@ class TinItem:
         )
 
     def do_stop(self):
-        self.process.send_signal(signal.CTRL_BREAK_EVENT)
-        self.process.wait()
-        self.process = None
-        self.log_f.close()
-        self.err_f.close()
+        if self.is_running():
+            self.process.send_signal(signal.CTRL_BREAK_EVENT)
+            self.process.wait()
+            self.process = None
+            self.log_f.close()
+            self.err_f.close()
 
     def on_start(self, icon: "pystray.Icon", item: "pystray.MenuItem"):  # noqa
         if self.is_running():
@@ -96,10 +97,10 @@ class TinManager:
         self.update()
         icon.visible = True
 
-    def on_exit(self, icon: "pystray.Icon", item: "pystray.MenuItem"):  # noqa
+    def on_exit(self, icon: "pystray.Icon", item: "pystray.MenuItem"):
         for task in self.tasks:
             task.do_stop()
-        icon.visible = True
+        icon.visible = False
         icon.stop()
 
 

@@ -1,6 +1,7 @@
 .idea
 *.log
 run/
+.webui_secret_key
 ./**/__pycache__/
 
 # frp

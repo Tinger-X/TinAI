@@ -1,3 +1,3 @@
 Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run chr(34) & "start.bat" & chr(34), 0
+WshShell.Run "python main.py config.json", 0, True
 Set WshShell = Nothing
