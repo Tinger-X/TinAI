@@ -1,0 +1,11 @@
+serverAddr = "1.1.1.1"
+serverPort = 8888
+webServer.addr = "127.0.0.1"
+webServer.port = 80
+
+[[proxies]]
+name = "example"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 5000
+customDomains = ["example.domain.com"]

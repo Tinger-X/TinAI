@@ -1,0 +1,50 @@
+{
+  "title": "Tinger Stray",
+  "image": "favicon.ico",
+  "tasks": [
+    {
+      "name": "Open WebUI",
+      "root": "",
+      "cmd": [
+        "open-webui",
+        "serve",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8010"
+      ],
+      "auto": false,
+      "log": "run/open-webui.log",
+      "err": "run/open-webui.err"
+    },
+    {
+      "name": "ComfyUI",
+      "root": "ComfyUI",
+      "cmd": [
+        "python",
+        "ComfyUI/main.py",
+        "--listen",
+        "0.0.0.0",
+        "--port",
+        "8011",
+        "--temp-directory",
+        "run"
+      ],
+      "auto": false,
+      "log": "run/comfyui.log",
+      "err": "run/comfyui.err"
+    },
+    {
+      "name": "FRP Client",
+      "root": "NetworkFrp",
+      "cmd": [
+        "NetworkFrp/frpc.exe",
+        "-c",
+        "NetworkFrp/frpc.toml"
+      ],
+      "auto": true,
+      "log": "run/frp.log",
+      "err": "run/frp.err"
+    }
+  ]
+}

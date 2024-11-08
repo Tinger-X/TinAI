@@ -1,0 +1,26 @@
+.idea
+*.log
+run/
+./**/__pycache__/
+
+# frp
+NetworkFrp/frpc.toml
+
+# Ollama model
+OllamaModel/blobs/*
+!OllamaModel/blobs/.gitkeep
+OllamaModel/manifests/registry.ollama.ai/*
+!OllamaModel/manifests/registry.ollama.ai/.gitkeep
+
+# Comfy UI
+ComfyUI/models/**/*.safetensors
+ComfyUI/custom_nodes/
+!ComfyUI/custom_nodes/example_node.py.example
+!ComfyUI/custom_nodes/websocket_image_save.py
+ComfyUI/output/
+ComfyUI/input/
+!/input/example.png
+ComfyUI/web/extensions/*
+!ComfyUI/web/extensions/logging.js.example
+!ComfyUI/web/extensions/core/
+
